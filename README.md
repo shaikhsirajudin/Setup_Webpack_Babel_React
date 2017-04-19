@@ -3,15 +3,15 @@ Setting up Webpack, Babel and React from scratch
 # Webpack
 1) For a start, install [node and npm](https://nodejs.org/en/.)
 
-2)create an empty folder. Navigate to it in the terminal.
+2) create an empty folder. Navigate to it in the terminal.
 
-3)Initialize npm (package.json) by running.
+3) Initialize npm (package.json) by running.
 
 ```
 >npm init
 ```
 
-4)Install babel core and it’s loader for webpack.
+4) Install babel core and it’s loader for webpack.
 
 ```
 
@@ -39,7 +39,21 @@ module.exports = {
 #This tells webpack that our main application file (app.js) is the entry point, and bundled application should be outputted to the dist folder.
 #__dirname is the name of the directory that the currently executing script resides in.
 
-* Run below to generate dist/app.js
+* Run the below to generate dist/app.js
 >node ./node_modules/webpack/bin/webpack.js
 
+```
+5) Add the Babel transpiler goodness by Install babel core and it’s loader for webpack and presets for ES6 (aka ES2015) and React
+
+```
+>npm i --save-dev babel-loader babel-core babel-preset-es2015 babel-preset-react
+```
+6) Create .babelrc in the project root folder and add presets
+```
+{
+  "presets": [
+    "es2015",
+    "react"
+  ]
+}
 ```
