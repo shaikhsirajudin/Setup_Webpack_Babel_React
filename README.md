@@ -1,4 +1,4 @@
-# Setup_Webpack_Babel_React
+# [Setup_Webpack_Babel_React](https://stanko.github.io/setting-up-webpack-babel-and-react-from-scratch/)
 Setting up Webpack, Babel and React from scratch
 # Webpack
 1) For a start, install [node and npm](https://nodejs.org/en/.)
@@ -132,5 +132,28 @@ module.exports = {
   
   *Tip: Now we can run only >npm run dev
 ```
+17)  To use [AirBNB’s](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) set of rules for linting, as their standards are really good. Also, creating eslint by hand would take a long time.
+```
+>npm install --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint
+```
+18) If you want to customize rules create .eslintrc that only needs extends param, add your rules to the rules object. Personally I like single quotes more, and spaces in the react curly synthax.
 
+```
+{
+  "extends": "airbnb",
+  "rules": {
+    "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-curly-spacing": [2, "always"],
+    "react/prefer-stateless-function": [0]
+  }
+}
+```
 
+19) Install [React Router](https://github.com/reactjs/react-router/blob/master/docs/Introduction.md)
+```
+>npm install --save react-router
+```
+20) Install [redux](http://redux.js.org/docs/basics/UsageWithReact.html)
+```
+>npm i redux react-redux --save
+```
