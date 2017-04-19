@@ -100,9 +100,37 @@ module.exports = {
   
   *Tip:Now when we run webpack again, we’ll get index.html and app.js in dist folder.
 ```
-10) Install webpack development server, and run it
+12) Install webpack development server, and run it
 ```
 >npm install --save-dev webpack webpack-dev-server
 >node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js
 *Tip: Same as with webpack, you can install it globally npm i --global webpack-dev-server and run it using webpack-dev-server.
 ```
+13) Add hot reloading.
+```
+>npm install react-hot-loader --save-dev
+```
+14) Update webpack js/jsx loader to use hot reloading
+```
+  {
+    test: /\.jsx?$/,
+    exclude: /node_modules/,
+    loaders: ["react-hot", "babel-loader"],
+  }
+```
+15) Add two more options when running dev server --hot and --inline. We will also add --history-api-fallback which will be useful when we add react router. This option tells server to fallback to index.html which will handle routing (as we are building single page app).
+```
+>node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline
+
+*Tip:Not only the hot reload watches the changes and updates the browser, but it injects the code and keeps the application state. Note that not all modules can be replaced. The code in app/js/app.js cannot be reloaded and will cause a full page reload but changing the children components will trigger a hot module replacement.
+```
+16) To make things easier, we’ll add our script to the package.json file.
+```
+"scripts": {
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback"
+  }
+  
+  *Tip: Now we can run only >npm run dev
+```
+
+
