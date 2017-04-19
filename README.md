@@ -57,3 +57,46 @@ module.exports = {
   ]
 }
 ```
+7) Add js/jsx loader to your webpack config, as well as extensions we want to resolve 
+```
+ resolve: {
+    extensions: ['', '.js', '.jsx', '.json']
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ["babel-loader"]
+      }
+    ]
+  }
+  
+  * Tip:Webpack accepts the array of the loaders. Loader has a test for the filenames, in our case it matches all of the .js and .jsx files. Then it applies babel loader to it. Basically this will transpile our fancy ES6 to ES5 which can be understood by browsers.
+  
+```
+
+8) Install react and react DOM
+```
+>npm i react react-dom --save
+```
+9) We’ll need file loader for it
+```
+>npm install file-loader --save-dev
+```
+10) Update webpack config to add entry
+```
+  entry: {
+    javascript: "./js/app.js",
+    html: "./index.html",
+  }
+```
+11) and add loader
+```
+  {
+    test: /\.html$/,
+    loader: "file?name=[name].[ext]",
+  }
+  
+  *Tip:Now when we run webpack again, we’ll get index.html and app.js in dist folder.
+```
