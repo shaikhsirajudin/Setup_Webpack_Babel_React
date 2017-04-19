@@ -2,12 +2,17 @@
 Setting up Webpack, Babel and React from scratch
 # Webpack
 1) For a start, install [node and npm](https://nodejs.org/en/.)
+
 2)create an empty folder. Navigate to it in the terminal.
+
 3)Initialize npm (package.json) by running.
+
 ```
 >npm init
 ```
+
 4)Install babel core and it’s loader for webpack.
+
 ```
 
 >npm install --save-dev webpack webpack-dev-server
