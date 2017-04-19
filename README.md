@@ -100,3 +100,9 @@ module.exports = {
   
   *Tip:Now when we run webpack again, we’ll get index.html and app.js in dist folder.
 ```
+10) Install webpack development server, and run it
+```
+>npm install --save-dev webpack webpack-dev-server
+>node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js
+*Tip: Same as with webpack, you can install it globally npm i --global webpack-dev-server and run it using webpack-dev-server.
+```
